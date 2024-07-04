@@ -1,0 +1,37 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+
+{% block head %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Главная страница</title>
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+{% endblock %}
+
+
+{% block body %}
+
+<div class="selection">
+    <div class="selection-in">
+        {% for post in posts %} 
+            <a class="link-post" href="{{ post.get_absolute_url }}">
+                <div class="post">
+                    <div class="post-image">
+                        {% if post.image %}
+                            <img class="images-of-posts" src="{{ post.image.url }}" alt="Image">
+                        {% endif %}
+                    </div>
+                    <div class="post-text">
+                        <h3>{{ post.title }}</h3>
+                        <p>Категория - {{ post.category }}</p>
+                        <p>{{ post.text | linebreaks | truncatewords:50 }}</p>
+                        <p>{{ post.date }}</p>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

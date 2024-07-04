@@ -1,0 +1,56 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+
+{% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/post.css' %}">
+{% endblock %}
+
+{% block body %}
+
+    <div class="selection">
+        <div class="a-post">
+            <h2>{{ post.title }}</h2>
+            <h4>Автор статьи - <a href="{% url 'user_profile' post.author.pk %}">{{ post.author }}</a></h4>
+            <p>{{ post.text | linebreaks }}</p>
+            <p>{{ post.date }}</p>
+
+            {% if post.author == request.user %}
+            <div class="buttons">
+                <a class="button-delete" href="{% url 'delete' post.pk %}">
+                    <p>Delete</p>
+                </a>
+                <a class="button-update" href="{% url 'update' post.pk %}">
+                    <p>Update</p>
+                </a>
+            </div>
+            {% endif %}
+            <h3>Комментарии:</h3>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form_comment.body }}
+                <button type="submit">Отправить</button>
+            </form>
+            {% if comments %}
+                {% for comment in comments %}
+                    <div class="comment-block">
+                        <h4>{{ comment.author }}</h4>
+                        <p>{{ comment.body }}</p>
+                        <p>Рейтинг: {{ comment.rating }}</p>
+                        <p>{{ comment.date }}</p>
+                        {% if comment.author == request.user %}
+                            <a href="{% url 'delete_comment' comment.pk %}">Delete comment</a>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>Без комментариев</p>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

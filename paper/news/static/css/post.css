@@ -1,0 +1,26 @@
+.a-post {
+    margin: 80px;
+}
+
+.buttons {
+    display: flex;
+}
+
+.button-delete {
+    color: red;
+    text-decoration: none;
+}
+
+.button-delete:hover {
+    color: white;
+}
+
+.button-update {
+    color: rgb(26, 188, 91);
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.button-update:hover {
+    color: white;
+}

@@ -1,0 +1,36 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+{% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/post.css' %}">
+{% endblock %}
+
+{% block body %}
+    <div class="selection">
+        <div class="user-profile">
+            <div class="first-left-block">
+                {% if user.image %}
+                    <img src="{{ user.image.url }}" alt="User-image">
+                {% else %}
+                    <img src="/static/images/empty-avatar.webp" alt="empty-avatar">
+                {% endif %}
+            </div>
+            <div class="right-block-with-data">
+                <p>Username: {{ user.username }}</p>
+                <p>First name: {{ user.first_name }}</p>
+                <p>Last name: {{ user.last_name }}</p>
+                <p>Email: {{ user.email }}</p>
+                <p>Articles: 
+                    {% for article in articles %}
+                        <p><a href="{% url 'post' article.pk %}">{{ article.title }}</a></p>
+                    {% endfor %}
+                </p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

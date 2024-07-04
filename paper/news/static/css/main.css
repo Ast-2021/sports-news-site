@@ -1,0 +1,167 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.page {
+    display: flex;
+    position: relative;
+}
+
+.navigation-top {
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+    margin: 0px;
+    background-color: rgb(31, 30, 30);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    position: fixed;
+    width: 100%;
+}
+
+.nav-top-left {
+    display: flex;
+}
+
+.nav-top-right {
+    color: white;
+}
+
+.navigation-top a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-top-left a {
+    margin-left: 25px;
+}
+
+.navigation-top a:hover {
+    color: rgb(73, 249, 190);
+}
+
+.navigation {
+    padding-top: 63px;
+    position: fixed;
+    height: 100%;
+    width: 15%; 
+    background-color: rgb(171, 171, 171);
+    display: flex;
+    flex-direction: column;
+}
+
+.box-nav {
+    margin-left: 15px;
+}
+
+.nav-text {
+    color: rgb(0, 0, 0);
+}
+
+.box-nav a {
+    display: inline;
+    text-decoration: none; 
+}
+
+.box-nav a:hover {
+    color: white;
+}
+
+.selection {
+    position: absolute;
+    right: 0;
+    top: 65px;
+    width: 85vw;
+    height: 100vh;
+}
+
+.selection-in {
+    margin-bottom: 80px;
+}
+
+.post {
+    margin-left: 30px;
+    border-style: solid;
+    border-width: 0.3px;
+    margin: 15px;
+    padding: 15px;
+    color: black;
+}
+
+.link-post {
+    text-decoration: none;
+}
+
+.post:hover{
+    color: rgb(78, 78, 78);
+ }
+
+ .main-logo img {
+    width: 95%;
+ }
+
+.category-text {
+    color: black;
+}
+
+.category-text:hover {
+    color: rgb(73, 249, 190);
+}
+
+.cat-selected {
+    color: white;
+}
+
+.post {
+    display: flex;
+}
+
+.images-of-posts {
+    height: 265px;
+    margin-right: 20px;
+    margin-top: 8px;
+}
+
+.form-selection {
+    margin: 30px;
+}
+
+footer {
+    background-color: rgb(31, 30, 30);
+    color: white;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:60px;
+    width:100%;
+}
+
+.user-profile {
+    display: flex;
+}
+
+.first-left-block {
+    margin: 40px;
+}
+
+.first-left-block img {
+    height: 300px;
+}
+
+.right-block-with-data {
+    margin-top: 80px
+}
+
+.a-post a {
+    text-decoration: none;
+}

@@ -1,0 +1,25 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+
+{% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/post.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="selection">
+    <div class="form-selection">
+        <div class="form-update">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <a href="{% url 'edit_profile' %}"><button>Update</button></a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

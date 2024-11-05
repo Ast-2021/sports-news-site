@@ -143,3 +143,6 @@ def delete_comment(request, comment_pk):
     comment = Comments.objects.get(pk=comment_pk)
     comment.delete()
     return redirect('main')
+
+def new_func():
+    return ...
